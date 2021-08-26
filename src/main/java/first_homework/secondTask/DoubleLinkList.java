@@ -10,7 +10,6 @@ public class DoubleLinkList<T> implements Iter<T>{
     @Override
     public OwnIterator<T> iterator() {
         return new OwnIterator<T>() {
-
             @Override
             public T prev() {
                 T info = current.previous.info;
