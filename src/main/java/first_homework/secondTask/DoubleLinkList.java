@@ -1,15 +1,13 @@
 package first_homework.secondTask;
 
-import java.util.Iterator;
-
-public class DoubleLinkList<T> implements Iter<T>{
+public class DoubleLinkList<T> implements IteratorMethod<T> {
     private ListNode<T> head;
     private ListNode<T> tail;
     private ListNode<T> prevNode = new ListNode<>();
     private ListNode<T> current;
     @Override
-    public OwnIterator<T> iterator() {
-        return new OwnIterator<T>() {
+    public ModifyInterator<T> iterator() {
+        return new ModifyInterator<T>() {
 
             @Override
             public T prev() {

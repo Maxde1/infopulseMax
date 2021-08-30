@@ -16,8 +16,4 @@ public class FirstTask {
         }
         return n*factorialByRecursion(n-1);
     }
-    public static void main(String[] args) {
-        System.out.println( FirstTask.factorialByRecursion(-1));
-        System.out.println( FirstTask.factorialByLoop(-1));
-    }
 }
