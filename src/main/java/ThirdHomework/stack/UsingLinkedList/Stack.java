@@ -1,33 +1,17 @@
-package ThirdHomework.stack;
+package ThirdHomework.stack.UsingLinkedList;
 
-
-import org.w3c.dom.Node;
 
 import java.util.Iterator;
 
-public class Stack<T> implements Iterator<T> {
+public class Stack<T>{
     private NodeElement<T> first;
     private NodeElement<T> last;
-    private NodeElement<T> tempPrev;
-    private NodeElement<T> tempGetElem;
-    private NodeElement<T> current;
 
-    @Override
-    public boolean hasNext() {
-        return current.next != null;
-    }
-
-    @Override
-    public T next() {
-        T info = current.data;
-        current = current.next;
-        return info;
-    }
 
     private static class NodeElement<T>{
         T data;
         NodeElement<T> next;
-        NodeElement<T> prevNodeElem;
+        NodeElement<T> prev;
     }
     public boolean isEmpty(){
         return first == null;
@@ -35,27 +19,37 @@ public class Stack<T> implements Iterator<T> {
     public void addElement(T node){
         NodeElement<T> newNode = new NodeElement<>();
         newNode.data = node;
+        NodeElement<T> tempPrev;
         if (isEmpty()){
             first = newNode;
             last = newNode;
-            current = first;
+            first.prev = null;
         }
         else {
             tempPrev= last;
             last.next = newNode;
             last = newNode;
-            last.prevNodeElem = tempPrev;
+            last.prev = tempPrev;
         }
 
     }
 
     public T getElement(){
+        NodeElement<T> tempCheckElem;
+        if (last == null){
+            return  null;
+        }
+        else if(last.prev == null){
+            tempCheckElem = last;
+            last = null;
+            first = null;
+            return tempCheckElem.data;
+        }
+        NodeElement<T> tempGetElem;
         tempGetElem = last;
-        last = last.prevNodeElem;
+        last = last.prev;
         last.next = null;
         return tempGetElem.data;
     }
-    public void startPosition(){
-        current = first;
-    }
+
 }

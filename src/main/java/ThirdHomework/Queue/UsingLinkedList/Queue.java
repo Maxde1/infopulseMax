@@ -1,4 +1,4 @@
-package ThirdHomework.stack;
+package ThirdHomework.Queue.UsingLinkedList;
 
 import org.w3c.dom.Node;
 
