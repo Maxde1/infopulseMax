@@ -1,34 +1,32 @@
-package ThirdHomework.stack.UsingArray;
+package ThirdHomework.Stack.UsingArray;
 
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.List;
 
-public class Stack<T> {
+public class StackArray<T> {
     private int rear, capacity, front;
 
     private T[] array;
 
-    Stack(Class<T> classT, int capacity){
+    public StackArray(Class<T> classT, int capacity){
         this.capacity = capacity;
         @SuppressWarnings("unchecked")
         T[] array = (T[]) Array.newInstance(classT, capacity);
         this.array = array;
         rear = front = 0;
     }
-    public void setElem(T elem){
+    public boolean setElem(T elem){
         if (capacity == rear){
-            System.out.println("Queue is full");
+            return false;
         }
         else {
             array[rear] = elem;
             rear++;
+            return true;
         }
     }
     public T get(){
         T tempObj = null;
         if (front == rear){
-            System.out.println("Queue is empty");
             front = rear = 0;
             return null;
         }
@@ -41,7 +39,6 @@ public class Stack<T> {
                 array[rear] = null;
             }
             rear--;
-            System.out.println(rear);
         }
         return tempObj;
     }

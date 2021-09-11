@@ -1,9 +1,7 @@
-package ThirdHomework.stack.UsingLinkedList;
+package ThirdHomework.Stack.UsingLinkedList;
 
 
-import java.util.Iterator;
-
-public class Stack<T>{
+public class StackLinkedList<T>{
     private NodeElement<T> first;
     private NodeElement<T> last;
 

@@ -1,51 +1,49 @@
 package ThirdHomework.Queue.UsingArray;
 
 import java.lang.reflect.Array;
-import java.lang.reflect.Field;
+import java.util.Arrays;
+import java.util.Collections;
 
 public class Queue<T> {
-    private int rear, capacity, front, nElement, currentSize;
-
+    private int iter, capacity;
     private T[] array;
-
     Queue(Class<T> classT, int capacity){
         this.capacity = capacity;
         @SuppressWarnings("unchecked")
         T[] array = (T[]) Array.newInstance(classT, capacity);
         this.array = array;
-        rear = -1;
-        nElement = front = currentSize = 0;
-
+        iter = 0;
     }
-    public void addElem(T elem){
-        if (currentSize == capacity){
-            System.out.println("This is full");
-        } else {
-            rear++;
-            if (rear == capacity-1){
-                rear = 0;
-            }
-            array[rear] = elem;
-            currentSize++;
+    // This method add new element to Queue.
+    public boolean add(T element){
+        if (iter<=capacity){
+            array[iter] = element;
+            iter++;
+            return true;
+        }
+        else {
+            return false;
         }
     }
-    public T get(){
-        if (currentSize == 0){
-            System.out.println("Queue is empty");
-        } else {
-            front++;
-            if (front == capacity -1){
-                front = 0;
-            }
-            else {
-
-            }
+    // This method return first element from Queue.
+    public T getElement(){
+        if (array[0]==null){
+            return null;
         }
-        nElement--;
-        return temp;
+        else{
+            return array[0];
+        }
     }
-
+    // this method return first element of Queue and delete it from Queue.
+    public T poll(){
+        T result = array[0];
+        if (array[0] == null){
+            return null;
+        }
+        else{
+            array[0] = null;
+            Collections.rotate(Arrays.asList(array), -1);
+        }
+        return result;
     }
-
-
-
+}
