@@ -1,21 +1,18 @@
 package third_homework;
 
 import ThirdHomework.CreateDTO.Car;
-import ThirdHomework.CreateDTO.CarFieldsToDto;
+import ThirdHomework.CreateDTO.CreateDto;
 import ThirdHomework.CreateDTO.DtoClass;
-import ThirdHomework.CreateDTO.DtoToJson;
+import ThirdHomework.CreateDTO.ConvertDtoToToJson;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import java.lang.reflect.Field;
-import java.util.List;
 
 public class TestCreateDTO {
     @Test
     public void validTestCreateDTO() throws NoSuchFieldException, IllegalAccessException {
         Car car = new Car("Volvo", "jeep", 1999);
         DtoClass dtoClass = new DtoClass();
-        CarFieldsToDto<Car, DtoClass> carFieldsToDto = new CarFieldsToDto<>();
+        CreateDto<Car, DtoClass> carFieldsToDto = new CreateDto<>();
         carFieldsToDto.convertToDTO(car, dtoClass);
         Assert.assertEquals(car.toString(), dtoClass.toString());
     }
@@ -23,13 +20,13 @@ public class TestCreateDTO {
     public void validTestDTOtoJson(){
         Car car = new Car("Volvo", "jeep", 1999);
         DtoClass dtoClass = new DtoClass();
-        CarFieldsToDto<Car, DtoClass> carFieldsToDto = new CarFieldsToDto<>();
+        CreateDto<Car, DtoClass> carFieldsToDto = new CreateDto<>();
         try {
             carFieldsToDto.convertToDTO(car, dtoClass);
         } catch (IllegalAccessException | NoSuchFieldException e) {
             e.printStackTrace();
         }
-        DtoToJson<DtoClass> dtoToJson = new DtoToJson<>();
+        ConvertDtoToToJson<DtoClass> dtoToJson = new ConvertDtoToToJson<>();
         String resultOfJson = dtoToJson.convertToJson(dtoClass);
         Assert.assertEquals("{\"name\":\"Volvo\",\"year\":1999,\"type\":\"jeep\"}", resultOfJson);
 

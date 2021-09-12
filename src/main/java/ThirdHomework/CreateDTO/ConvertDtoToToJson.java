@@ -5,8 +5,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
 
-public class DtoToJson<T> {
+public class ConvertDtoToToJson<T> {
     public String convertToJson(T dto)  {
+        //Using already exist library for convert dto to Json
         ObjectMapper objectMapper = new ObjectMapper();
         String carAsString = null;
         try {
