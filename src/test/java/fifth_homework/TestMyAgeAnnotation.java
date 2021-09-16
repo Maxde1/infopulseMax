@@ -1,5 +1,6 @@
 package fifth_homework;
 
+import fifth_homework.beanValidationUsingJSR380.UserAccount;
 import org.testng.annotations.Test;
 
 import javax.validation.ConstraintViolation;
@@ -8,7 +9,7 @@ import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 import java.util.Set;
 
-public class TestBeenValidator {
+public class TestMyAgeAnnotation {
     @Test
     public void positiveTestValidationUserAccount(){
         UserAccount userAccount = new UserAccount();
@@ -18,6 +19,7 @@ public class TestBeenValidator {
         ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
         Validator validator = validatorFactory.getValidator();
         Set<ConstraintViolation<UserAccount>> constraintViolations = validator.validate(userAccount);
+
 
         validatorFactory.close();
     }

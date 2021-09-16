@@ -1,12 +1,9 @@
-package fifth_homework;
+package fifth_homework.beanValidationUsingJSR380;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.validation.*;
 import javax.validation.constraints.*;
 import javax.xml.crypto.Data;
-import java.util.Set;
-import lombok;
 @lombok.Data
 public class UserAccount {
     @NotNull(message = "This field can't be null")
@@ -21,7 +18,4 @@ public class UserAccount {
     private Data birthday;
     @Email
     private String email;
-    private
-
-
 }
