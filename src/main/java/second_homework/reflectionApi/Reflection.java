@@ -19,8 +19,8 @@ public class Reflection {
         }catch (NoSuchFieldException | IllegalAccessException e){
             e.printStackTrace();
         }
+        System.out.println(testClass.getGenericParame().getGenericSuperclass().getTypeName());;
 
-        //////Get class, method, parameter ????
 
     }
 }
