@@ -1,6 +1,6 @@
 package fifth_homework;
 
-import fifth_homework.beanValidatioOwnVadidator.Person;
+import fifth_homework.beanValidatioOwnVadidator.NewValidator.Person;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -21,6 +21,7 @@ public class TestMyValidator {
         ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
         Validator validator = validatorFactory.getValidator();
         Set<ConstraintViolation<Person>> constraintViolations = validator.validate(person);
+
         Assert.assertFalse(constraintViolations.isEmpty());
     }
 }
