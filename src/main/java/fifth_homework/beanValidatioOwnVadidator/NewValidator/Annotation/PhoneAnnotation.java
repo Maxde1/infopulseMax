@@ -1,4 +1,4 @@
-package fifth_homework.beanValidatioOwnVadidator;
+package fifth_homework.beanValidatioOwnVadidator.NewValidator.Annotation;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
@@ -8,13 +8,14 @@ import java.lang.annotation.Target;
 
 import static java.lang.annotation.ElementType.*;
 
-@Target(TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = AgeValidator.class)
-public @interface Age {
-    String message() default "Age and birthday doesn't match";
+@Target( FIELD)
+@Constraint(validatedBy = PhoneAnnotationValidator.class)
+public @interface PhoneAnnotation {
+    String message() default "{phone.invalid}";
 
     Class<?>[] groups() default {};
 
     Class<? extends Payload>[] payload() default {};
+
 }
